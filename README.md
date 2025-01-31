@@ -54,13 +54,13 @@ Install with CDN if you plan to use Wonderful Version only in a browser environm
 </script>
 ```
 
-### Option 3: Use without installation
+<!-- ### Option 3: Use without installation
 You can use `wonderful-version` in a variety of ways that require no installation, such as `curl` in terminal/shell.
 
 ```shell
 # Standard
 curl -X POST https://api.itwcreativeworks.com
-```
+``` -->
 
 ## ⚡️ Usage
 ### .clean(version)
