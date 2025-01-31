@@ -123,6 +123,27 @@ describe(`${package.name}`, () => {
     });
   });
 
+  // Test: Major Level method
+  describe('.major()', () => {
+    it('should return the major version number', () => {
+      assert.strictEqual(WonderfulVersion.major('1.2.3'), 1);
+    });
+  });
+
+  // Test: Minor Level method
+  describe('.minor()', () => {
+    it('should return the minor version number', () => {
+      assert.strictEqual(WonderfulVersion.minor('1.2.3'), 2);
+    });
+  });
+
+  // Test: Patch Level method
+  describe('.patch()', () => {
+    it('should return the patch version number', () => {
+      assert.strictEqual(WonderfulVersion.patch('1.2.3'), 3);
+    });
+  });
+
   // Test: Behind Level method
   describe('.levelDifference()', () => {
     it('should return "major" if major version is behind', () => {

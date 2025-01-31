@@ -103,6 +103,21 @@
     }
   }
 
+  // Major
+  WonderfulVersion.major = function (version) {
+    return parseInt(WonderfulVersion.clean(version).split('.')[0]);
+  }
+
+  // Minor
+  WonderfulVersion.minor = function (version) {
+    return parseInt(WonderfulVersion.clean(version).split('.')[1]);
+  }
+
+  // Patch
+  WonderfulVersion.patch = function (version) {
+    return parseInt(WonderfulVersion.clean(version).split('.')[2]);
+  }
+
   // Behind Level
   WonderfulVersion.levelDifference = function (version1, version2) {
     var v1 = WonderfulVersion.clean(version1).split('.').map(Number);
