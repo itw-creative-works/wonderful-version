@@ -82,6 +82,27 @@
     return compareVersions(version1, version2) >= 0;
   }
 
+  // Is
+  WonderfulVersion.is = function (version1, comparator, version2) {
+    switch (comparator) {
+      case '==':
+      case '===':
+        return WonderfulVersion.equals(version1, version2);
+      case '!=':
+        return !WonderfulVersion.equals(version1, version2);
+      case '>':
+        return WonderfulVersion.greaterThan(version1, version2);
+      case '>=':
+        return WonderfulVersion.greaterThanOrEqual(version1, version2);
+      case '<':
+        return WonderfulVersion.lessThan(version1, version2);
+      case '<=':
+        return WonderfulVersion.lessThanOrEqual(version1, version2);
+      default:
+        throw new Error('Invalid comparator "' + comparator + '"');
+    }
+  }
+
   // Behind Level
   WonderfulVersion.levelDifference = function (version1, version2) {
     var v1 = WonderfulVersion.clean(version1).split('.').map(Number);

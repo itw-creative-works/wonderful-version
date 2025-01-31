@@ -99,6 +99,14 @@ Checks if `version1` is greater than or equal to `version2`.
 console.log(wonderfulVersion.greaterThanOrEqual('1.2.4', '1.2.3')); // true
 ```
 
+### .is(version1, comparator, version2)
+Checks if `version1` is `['===', '!=', '>', '>=', '<', '<=']` to `version2`.
+```js
+console.log(wonderfulVersion.is('1.2.4', '>=', '1.2.3')); // true
+console.log(wonderfulVersion.is('1.2.4', '!=', '1.2.3')); // true
+console.log(wonderfulVersion.is('1.2.4', '===', '1.2.4')); // true
+```
+
 ### .levelDifference(version1, version2)
 Determines which version level (`major`, `minor`, or `patch`) `version1` is behind compared to `version2`.
 ```js

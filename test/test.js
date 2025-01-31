@@ -93,6 +93,36 @@ describe(`${package.name}`, () => {
     });
   });
 
+  // Test: Is method
+  describe('.is()', () => {
+    it('should return true if versions are equal', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '===', '1.2.3'), true);
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '==', '1.2.3'), true);
+    });
+
+    it('should return true if versions are not equal', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '!=', '1.2.4'), true);
+    });
+
+    it('should return true if first version is greater', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.4', '>', '1.2.3'), true);
+    });
+
+    it('should return true if first version is greater or equal', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.4', '>=', '1.2.3'), true);
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '>=', '1.2.3'), true);
+    });
+
+    it('should return true if first version is smaller', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '<', '1.2.4'), true);
+    });
+
+    it('should return true if first version is smaller or equal', () => {
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '<=', '1.2.4'), true);
+      assert.strictEqual(WonderfulVersion.is('1.2.3', '<=', '1.2.3'), true);
+    });
+  });
+
   // Test: Behind Level method
   describe('.levelDifference()', () => {
     it('should return "major" if major version is behind', () => {
