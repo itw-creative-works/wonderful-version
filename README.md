@@ -42,10 +42,7 @@ npm install wonderful-version
 If you plan to use `wonderful-version` in a browser environment, you will probably need to use [Webpack](https://www.npmjs.com/package/webpack), [Browserify](https://www.npmjs.com/package/browserify), or a similar service to compile it.
 
 ```js
-const wonderful-version = new (require('wonderful-version'))({
-  // Not required, but having one removes limits (get your key at https://itwcreativeworks.com).
-  apiKey: 'api_test_key'
-});
+const wonderfulVersion = require('wonderful-version');
 ```
 
 ### Option 2: Install via CDN
@@ -53,10 +50,7 @@ Install with CDN if you plan to use Wonderful Version only in a browser environm
 ```html
 <script src="https://cdn.jsdelivr.net/npm/wonderful-version@latest/dist/index.min.js"></script>
 <script type="text/javascript">
-  var wonderful-version = new WonderfulVersion({
-    // Not required, but having one removes limits (get your key at https://itwcreativeworks.com).
-    apiKey: 'api_test_Key'
-  });
+  var wonderfulVersion = WonderfulVersion;
 </script>
 ```
 
@@ -69,9 +63,46 @@ curl -X POST https://api.itwcreativeworks.com
 ```
 
 ## ⚡️ Usage
-### wonderful-version.run(options)
+### .clean(version)
+Cleans a version string by removing non-numeric characters and trailing zeros.
 ```js
-wonderful-version.run(options);
+console.log(wonderfulVersion.clean('v1.02.30')); // '1.2.3'
+```
+
+### .equals(version1, version2)
+Checks if two version strings are equal after cleaning.
+```js
+console.log(wonderfulVersion.equals('1.0.0', '1')); // true
+```
+
+### .lessThan(version1, version2)
+Checks if `version1` is less than `version2`.
+```js
+console.log(wonderfulVersion.lessThan('1.2.3', '1.2.4')); // true
+```
+
+### .greaterThan(version1, version2)
+Checks if `version1` is greater than `version2`.
+```js
+console.log(wonderfulVersion.greaterThan('1.2.4', '1.2.3')); // true
+```
+
+### .lessThanOrEqual(version1, version2)
+Checks if `version1` is less than or equal to `version2`.
+```js
+console.log(wonderfulVersion.lessThanOrEqual('1.2.3', '1.2.4')); // true
+```
+
+### .greaterThanOrEqual(version1, version2)
+Checks if `version1` is greater than or equal to `version2`.
+```js
+console.log(wonderfulVersion.greaterThanOrEqual('1.2.4', '1.2.3')); // true
+```
+
+### .levelDifference(version1, version2)
+Determines which version level (`major`, `minor`, or `patch`) `version1` is behind compared to `version2`.
+```js
+console.log(wonderfulVersion.behindLevel('1.2.3', '2.0.0')); // 'major'
 ```
 
 ## 📘 Using Wonderful Version
