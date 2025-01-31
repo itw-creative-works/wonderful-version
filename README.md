@@ -21,7 +21,7 @@
   <a href="https://itwcreativeworks.com">Site</a> | <a href="https://www.npmjs.com/package/wonderful-version">NPM Module</a> | <a href="https://github.com/itw-creative-works/wonderful-version">GitHub Repo</a>
   <br>
   <br>
-  <strong>wonderful-version</strong> is the official npm module of <a href="https://itwcreativeworks.com">Wonderful Version</a>, a free app for Gracefully check semantic versions instead of throwing errors.
+  <strong>wonderful-version</strong> is the official npm module of <a href="https://itwcreativeworks.com">Wonderful Version</a>, a free app for gracefully checking semantic versions instead of throwing errors.
 </p>
 
 ## 🌐 Wonderful Version Works in Node AND browser environments
@@ -30,8 +30,8 @@ Yes, this module works in both Node and browser environments, including compatib
 ## 🦄 Features
 * Gracefully check semantic versions instead of throwing errors
 
-## 🔑 Getting an API key
-You can use so much of `wonderful-version` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for a Wonderful Version account](https://itwcreativeworks.com/signup).
+<!-- ## 🔑 Getting an API key
+You can use so much of `wonderful-version` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for a Wonderful Version account](https://itwcreativeworks.com/signup). -->
 
 ## 📦 Install Wonderful Version
 ### Option 1: Install via npm
