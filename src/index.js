@@ -19,7 +19,7 @@
   var SOURCE = 'library';
   var VERSION = '{version}';
 
-  function __module_title(options) {
+  function WonderfulVersion(options) {
     var self = this;
 
     self.options = options || {};
@@ -27,20 +27,109 @@
     return self
   };
 
-  __module_title.prototype.method = function (options) {
-    var self = this;
+  // Clean
+  WonderfulVersion.clean = function (version) {
+    // Transform
+    if (typeof version !== 'string') {
+      version = String(version);
+    }
 
-    options = options || {};
+    // Clean
+    version = version
+      .replace(/[^0-9.]/g, '') // Remove non-numeric and non-dot characters
+      .replace(/(\.0+)+$/, '') // Remove trailing zeros after the last dot
+      .replace(/\b0+(\d)/g, '$1'); // Remove leading zeros from each segment
 
-    return new Promise(function(resolve, reject) {
+    // Ensure version has 3 parts
+    var parts = version.split('.');
+    while (parts.length < 3) {
+      parts.push('0');
+    }
 
-    });
+    return parts.join('.');
   }
+
+  // Equals
+  WonderfulVersion.equals = function (version1, version2) {
+    // Clean
+    var cleanVersion1 = WonderfulVersion.clean(version1);
+    var cleanVersion2 = WonderfulVersion.clean(version2);
+
+    // Equals
+    return cleanVersion1 === cleanVersion2;
+  }
+
+  // Less Than
+  WonderfulVersion.lessThan = function (version1, version2) {
+    return compareVersions(version1, version2) < 0;
+  }
+
+  // Greater Than
+  WonderfulVersion.greaterThan = function (version1, version2) {
+    return compareVersions(version1, version2) > 0;
+  }
+
+  // Less Than or Equal
+  WonderfulVersion.lessThanOrEqual = function (version1, version2) {
+    return compareVersions(version1, version2) <= 0;
+  }
+
+  // Greater Than or Equal
+  WonderfulVersion.greaterThanOrEqual = function (version1, version2) {
+    return compareVersions(version1, version2) >= 0;
+  }
+
+  // Behind Level
+  WonderfulVersion.levelDifference = function (version1, version2) {
+    var v1 = WonderfulVersion.clean(version1).split('.').map(Number);
+    var v2 = WonderfulVersion.clean(version2).split('.').map(Number);
+
+    // Check which level is behind
+    if (v1[0] !== v2[0]) {
+      return 'major';
+    };
+    if (v1[1] !== v2[1]) {
+      return 'minor'
+    };
+    if (v1[2] !== v2[2]) {
+      return 'patch'
+    };
+
+    // Equals
+    return 'equal';
+  }
+
+  // Helper function to compare versions
+  function compareVersions(version1, version2) {
+    // Clean
+    var v1 = WonderfulVersion.clean(version1).split('.').map(Number);
+    var v2 = WonderfulVersion.clean(version2).split('.').map(Number);
+
+    // Compare
+    for (var i = 0; i < Math.max(v1.length, v2.length); i++) {
+      var num1 = v1[i] || 0;
+      var num2 = v2[i] || 0;
+
+      // Less than
+      if (num1 < num2) {
+        return -1
+      };
+
+      // Greater than
+      if (num1 > num2) {
+        return 1
+      };
+    }
+
+    // Equals
+    return 0;
+  }
+
 
   // Register
   if (environment === 'browser') {
     try {
-      window.__module_title = __module_title;
+      window.WonderfulVersion = WonderfulVersion;
     } catch (e) {
     }
   }
@@ -48,6 +137,6 @@
   // Just return a value to define the module export.
   // This example returns an object, but the module
   // can return a function as the exported value.
-  return __module_title; // Enable if using UMD
+  return WonderfulVersion; // Enable if using UMD
 
 }));

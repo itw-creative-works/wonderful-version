@@ -1,8 +1,7 @@
 {
-  "TODO": "__module_domain, __module_name, __asset_file_name, __module_owner, __module_title, __module_class_name, __module_description, __module_feature",
-  "name": "__module_name",
-  "version": "0.0.1",
-  "description": "__module_description",
+  "name": "wonderful-version",
+  "version": "1.0.0",
+  "description": "A far-less-frustrating rendition of semver",
   "main": "./dist/index.js",
   "scripts": {
     "start": "node ./dist/index.js",
@@ -29,17 +28,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/__module_owner/__module_name"
+    "url": "git+https://github.com/itw-creative-works/wonderful-version"
   },
   "keywords": [
-    "__module_name"
+    "wonderful-version"
   ],
   "author": "ITW Creative Works",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/__module_owner/__module_name/issues"
+    "url": "https://github.com/itw-creative-works/wonderful-version/issues"
   },
-  "homepage": "https://__module_domain",
+  "homepage": "https://itwcreativeworks.com",
   "dependencies": {
     "itwcw-package-analytics": "^1.0.6"
   },
