@@ -31,7 +31,7 @@
   WonderfulVersion.clean = function (version) {
     // Transform
     if (typeof version !== 'string') {
-      version = String(version);
+      version = String(version || '0.0.0');
     }
 
     // Clean
@@ -45,6 +45,9 @@
     while (parts.length < 3) {
       parts.push('0');
     }
+
+    // Ensure each part is not an empty string
+    parts = parts.map(part => part === '' ? '0' : part);
 
     return parts.join('.');
   }

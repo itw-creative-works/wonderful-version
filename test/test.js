@@ -27,6 +27,10 @@ describe(`${package.name}`, () => {
       assert.strictEqual(WonderfulVersion.clean('2.0.0'), '2.0.0');
       assert.strictEqual(WonderfulVersion.clean('2.0.0.0'), '2.0.0');
     });
+    it('should default to 0.0.0', () => {
+      assert.strictEqual(WonderfulVersion.clean(''), '0.0.0');
+      assert.strictEqual(WonderfulVersion.clean(undefined), '0.0.0');
+    });
   });
 
   // Test: Equals method

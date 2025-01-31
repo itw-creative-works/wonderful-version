@@ -1,6 +1,6 @@
 {
   "name": "wonderful-version",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A far-less-frustrating rendition of semver",
   "main": "./dist/index.js",
   "scripts": {
