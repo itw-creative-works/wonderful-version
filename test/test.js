@@ -162,4 +162,25 @@ describe(`${package.name}`, () => {
       assert.strictEqual(WonderfulVersion.levelDifference('1.2.3', '1.2.3'), 'equal');
     });
   });
+
+  // Test: Increment method
+  describe('.increment()', () => {
+    it('should increment major version', () => {
+      assert.strictEqual(WonderfulVersion.increment('1.2.3', 'major', 2), '3.0.0');
+    });
+
+    it('should increment minor version', () => {
+      assert.strictEqual(WonderfulVersion.increment('1.2.3', 'minor', 2), '1.4.0');
+    });
+
+    it('should increment patch version', () => {
+      assert.strictEqual(WonderfulVersion.increment('1.2.3', 'patch', 2), '1.2.5');
+    });
+
+    it('should throw an error if level is invalid', () => {
+      assert.throws(() => {
+        WonderfulVersion.increment('1.2.3', 'invalid', 2);
+      }, Error);
+    });
+  });
 });

@@ -138,6 +138,32 @@
     return 'equal';
   }
 
+  // Increment
+  WonderfulVersion.increment = function (version, level, amount) {
+    var v = WonderfulVersion.clean(version).split('.').map(Number);
+
+    // Increment
+    switch (level) {
+      case 'major':
+        v[0] += amount;
+        v[1] = 0;
+        v[2] = 0;
+        break;
+      case 'minor':
+        v[1] += amount;
+        v[2] = 0;
+        break;
+      case 'patch':
+        v[2] += amount;
+        break;
+      default:
+        throw new Error('Invalid level "' + level + '"');
+    }
+
+    // Return
+    return v.join('.');
+  }
+
   // Helper function to compare versions
   function compareVersions(version1, version2) {
     // Clean

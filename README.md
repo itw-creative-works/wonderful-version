@@ -108,19 +108,19 @@ console.log(wonderfulVersion.is('1.2.4', '===', '1.2.4')); // true
 ```
 
 ### .major(version)
-Returns the major version number.
+Returns the major `version` number.
 ```js
 console.log(wonderfulVersion.major('1.2.3')); // 1
 ```
 
 ### .minor(version)
-Returns the minor version number.
+Returns the minor `version` number.
 ```js
 console.log(wonderfulVersion.minor('1.2.3')); // 2
 ```
 
 ### .patch(version)
-Returns the patch version number.
+Returns the patch `version` number.
 ```js
 console.log(wonderfulVersion.patch('1.2.3')); // 3
 ```
@@ -129,6 +129,14 @@ console.log(wonderfulVersion.patch('1.2.3')); // 3
 Determines which version level (`major`, `minor`, or `patch`) `version1` is behind compared to `version2`.
 ```js
 console.log(wonderfulVersion.behindLevel('1.2.3', '2.0.0')); // 'major'
+```
+
+### .increment(version, level, amount)
+Increments a `version` number by a certain `level` and `amount`. Segments following the incremented level are reset to `0`.
+```js
+console.log(wonderfulVersion.increment('1.2.3', 'major', 1)); // '2.0.0'
+console.log(wonderfulVersion.increment('1.2.3', 'minor', 1)); // '1.3.0'
+console.log(wonderfulVersion.increment('1.2.3', 'patch', 1)); // '1.2.4'
 ```
 
 ## 📘 Using Wonderful Version
