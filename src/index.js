@@ -142,6 +142,9 @@
   WonderfulVersion.increment = function (version, level, amount) {
     var v = WonderfulVersion.clean(version).split('.').map(Number);
 
+    // Set default amount
+    amount = typeof amount === 'undefined' ? 1 : amount;
+
     // Increment
     switch (level) {
       case 'major':
